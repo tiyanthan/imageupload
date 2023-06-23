@@ -3,6 +3,7 @@ package com.defect.tracker.service;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
+import java.util.Optional;
 import org.springframework.data.domain.Pageable;
 import org.springframework.web.multipart.MultipartFile;
 import com.defect.tracker.common.response.PaginatedContentResponse.Pagination;
@@ -44,4 +45,6 @@ public interface SubModuleService {
   public boolean fileReader(MultipartFile file);
   
   public void uploadImage(MultipartFile file,Long id) throws IOException;
+  
+  public Optional<SubModule> getImageById(Long id);
 }

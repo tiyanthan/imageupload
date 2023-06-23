@@ -11,6 +11,7 @@ import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import javax.transaction.Transactional;
 import org.springframework.beans.BeanUtils;
 import org.springframework.data.domain.Page;
@@ -186,5 +187,10 @@ public class SubModleServiceImpl implements SubModuleService {
     SubModule subModule =subModuleRepository.findById(id).orElse(null);
     subModule.setImage(file.getBytes());
     subModuleRepository.save(subModule);
+  }
+
+  @Override
+  public Optional<SubModule> getImageById(Long id) { 
+    return subModuleRepository.findById(id);
   }
 }
